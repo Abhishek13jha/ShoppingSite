@@ -1,0 +1,14 @@
+﻿@model ShoppingSite.Models.Category
+@{
+    ViewBag.Title = "Browse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.CategoryName</h2>
+
+<ul>
+    @foreach (var item in Model.Items)
+    {
+        <li>@Html.ActionLink(item.ItemName, "Details", new { id = item.ItemId })</li>
+    }
+</ul>

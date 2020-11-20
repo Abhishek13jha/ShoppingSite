@@ -1,0 +1,13 @@
+﻿@model IEnumerable<ShoppingSite.Models.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Category present:</h2>
+<ul>
+    @foreach (var category in Model)
+    {
+        <li> @Html.ActionLink(category.CategoryName, "Browse", new { category = category.CategoryName })</li>
+    }
+</ul>

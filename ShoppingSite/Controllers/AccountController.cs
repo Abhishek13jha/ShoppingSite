@@ -17,7 +17,7 @@ namespace ShoppingSite.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        //hello world
+        
         public AccountController()
         {
         }

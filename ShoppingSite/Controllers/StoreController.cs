@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ShoppingSite.Models;
+using ShoppingSite.ViewModels;
+
 namespace ShoppingSite.Controllers
 {
     public class StoreController : Controller
@@ -31,8 +33,16 @@ namespace ShoppingSite.Controllers
         }
         public ActionResult Details(int id)
         {
-            var item = _context.Items.Find(id);
-            return View(item);
+            var Item1 = _context.Items.Find(id);
+            var cat1 = _context.Categories.Find(id);
+            var pr1 = _context.Producers.Find(id);
+            var viewModel = new RandomViewModel
+            {
+                Category = cat1,
+                Producer = pr1,
+                Item = Item1
+            };
+            return View(viewModel);
         }
     }
 }

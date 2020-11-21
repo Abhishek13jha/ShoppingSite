@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -22,6 +22,12 @@ namespace ShoppingSite.Controllers
         {
         }
 
+        private void MigrateShoppingCart(string Email)
+        {
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+            cart.MigrateCart(Email);
+            Session[ShoppingCart.CartSessionKey] = Email;
+        }
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
@@ -79,6 +85,7 @@ namespace ShoppingSite.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    MigrateShoppingCart(model.Email);
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -156,7 +163,7 @@ namespace ShoppingSite.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    MigrateShoppingCart(model.Email);
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

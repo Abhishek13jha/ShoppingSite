@@ -15,20 +15,22 @@ namespace ShoppingSite.Controllers
         {
             _context = new ApplicationDbContext();
         }
-        protected override void Dispose(bool disposing)
+        /*protected override void Dispose(bool disposing)
         {
             _context.Dispose();
-        }
+        }*/
 
         public ActionResult Index()
         {
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
-
+            //var item1 = _context.Items.Find(); 
+          
             var viewModel = new ShoppingCartViewModel
             {
                 CartItems = cart.GetCartItems(),
                 CartTotal =cart.GetTotal()
+              //  Item=item1
             };
 
             return View(viewModel);

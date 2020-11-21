@@ -133,7 +133,7 @@ namespace ShoppingSite.Models
                     UnitPrice =(decimal)item.Item.Price,
                     Quantity = item.Count
                 };
-
+                
                 orderTotal += (decimal)(item.Count * item.Item.Price);
 
                 storeDB.OrderDetails.Add(orderDetail);

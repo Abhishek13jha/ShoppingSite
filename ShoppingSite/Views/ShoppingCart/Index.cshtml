@@ -53,13 +53,7 @@
     @foreach (var item in Model.CartItems)
     {
 <tr id="row-@item.RecordId">
-    <td>
-        @Html.ActionLink(item.Item.ItemName,
-"Details", "Store", new { id = item.ItemId }, null)
-    </td>
-    <td>
-        @item.Item.Price
-    </td>
+    
     <td id="item-count-@item.RecordId">
         @item.Count
     </td>

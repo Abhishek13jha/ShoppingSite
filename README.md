@@ -9,7 +9,13 @@ Authorization for admin
 Order class
 Cart for items
 
+in third commit-
+Authorization for user
+
+in Fourth commit-
+Cart View
+
 Upcoming changes...
-1.Authorization for user
-2.Searching option
+1.Searching option
+2.Look into the style part of application
 

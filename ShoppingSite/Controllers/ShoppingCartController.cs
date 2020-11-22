@@ -24,29 +24,27 @@ namespace ShoppingSite.Controllers
         {
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
-            //var item1 = _context.Items.Find(); 
+           
           
             var viewModel = new ShoppingCartViewModel
             {
                 CartItems = cart.GetCartItems(),
                 CartTotal =cart.GetTotal()
-              //  Item=item1
+                
             };
 
             return View(viewModel);
         }
-
+        
         public ActionResult AddToCart(int id)
         {
 
             var addedItem = _context.Items
                 .Single(item => item.ItemId == id);
 
-
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
             cart.AddToCart(addedItem);
-
 
             return RedirectToAction("Index");
         }

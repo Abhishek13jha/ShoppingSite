@@ -33,16 +33,8 @@ namespace ShoppingSite.Controllers
         }
         public ActionResult Details(int id)
         {
-            var Item1 = _context.Items.Find(id);
-            var cat1 = _context.Categories.Find(id);
-            var pr1 = _context.Producers.Find(id);
-            var viewModel = new RandomViewModel
-            {
-                Category = cat1,
-                Producer = pr1,
-                Item = Item1
-            };
-            return View(viewModel);
+            var item = _context.Items.Include("Producer").Where(s => s.ItemId == id).FirstOrDefault<Item>();
+            return View(item);
         }
     }
 }

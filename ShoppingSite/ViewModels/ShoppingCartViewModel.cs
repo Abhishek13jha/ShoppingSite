@@ -9,8 +9,8 @@ namespace ShoppingSite.ViewModels
     {
         public List<Cart> CartItems { get; set; }
         public decimal CartTotal { get; set; }
-      //  public Item Item { get; set; }
-        //public Cart Cart { get; set; }
+        public Item Item { get; set; }
+        
         
     }
 }

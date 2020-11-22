@@ -14,7 +14,7 @@ namespace ShoppingSite.Models
         [ScaffoldColumn(false)]
         public int OrderId { get; set; }
         [ScaffoldColumn(false)]
-        public System.DateTime OrderDate { get; set; }
+        public DateTime OrderDate { get; set; }
         [ScaffoldColumn(false)]
         public string UserName { get; set; }
         [Required(ErrorMessage = "First Name is required")]

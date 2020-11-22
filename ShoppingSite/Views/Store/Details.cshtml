@@ -1,20 +1,17 @@
-﻿@model ShoppingSite.ViewModels.RandomViewModel
+﻿@model ShoppingSite.Models.Item
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Item.ItemName</h2>
+<h2>@Model.ItemName</h2>
 
     <p>
-        <img alt="@Model.Item.ItemName"
-             src="@Model.Item.ItemUrl" />
+        <img alt="@Model.ItemName"
+             src="@Model.ItemUrl" />
     </p>
     <div id="item-details">
-        <p>
-            <em>Category:</em>
-            @Model.Category.CategoryName
-        </p>
+        
         <p>
             <em>Producer:</em>
             @Model.Producer.Name
@@ -22,11 +19,11 @@
         <p>
             <em>Price:</em>
             @String.Format("{0:F}",
-    Model.Item.Price)
+    Model.Price)
         </p>
         <p class="button1">
             @Html.ActionLink("Add to cart", "AddToCart",
-            "ShoppingCart", new { id = Model.Item.ItemId }, "")
+            "ShoppingCart", new { id = Model.ItemId }, "")
         </p>
         <div class="fb-comments" data-width="230" data-numposts="5"></div>
     </div>

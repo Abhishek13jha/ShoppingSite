@@ -57,7 +57,7 @@ namespace ShoppingSite.Models
         public int RemoveFromCart(int id)
         {
 
-            var cartItem = storeDB.Carts.Single(
+            var cartItem = storeDB.Carts.Include("Item").Single(
                 cart => cart.CartId == ShoppingCartId
                 && cart.RecordId == id);
 
@@ -94,7 +94,7 @@ namespace ShoppingSite.Models
         }
         public List<Cart> GetCartItems()
         {
-            return storeDB.Carts.Where(
+            return storeDB.Carts.Include("Item").Where(
                 cart => cart.CartId == ShoppingCartId).ToList();
         }
         public int GetCount()

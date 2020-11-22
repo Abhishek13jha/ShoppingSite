@@ -26,6 +26,7 @@ namespace ShoppingSite.Controllers
             var categories = _context.Categories.ToList();
             return View(categories);
         }
+        
         public ActionResult Browse(string category)
         {
             var categorymodel = _context.Categories.Include("Items").Single(c => c.CategoryName == category);
@@ -36,5 +37,7 @@ namespace ShoppingSite.Controllers
             var item = _context.Items.Include("Producer").Where(s => s.ItemId == id).FirstOrDefault<Item>();
             return View(item);
         }
+
+        
     }
 }

@@ -6,9 +6,14 @@
 
 <h2>@Model.CategoryName</h2>
 
-<ul>
+
     @foreach (var item in Model.Items)
     {
-        <li>@Html.ActionLink(item.ItemName, "Details", new { id = item.ItemId })</li>
+    <div class="container">
+        <ul class="list-group">
+            <li class="list-group-item"> @Html.ActionLink(item.ItemName, "Details", new { id = item.ItemId })</li>
+        </ul>
+    </div>
     }
-</ul>
+
+

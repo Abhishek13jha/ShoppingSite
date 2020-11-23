@@ -26,13 +26,13 @@ namespace ShoppingSite.Controllers
         [HttpPost]
         public ActionResult Index(string tags)
         {
-            var item = _context.Items.Where(x => x.ItemName == tags).SingleOrDefault();
+            var item = _context.Items.Where(x => x.ItemName.Equals(tags)).SingleOrDefault();
             return View(item);
         }
 
         public JsonResult getName()
         {
-            List<Item> list_item = _context.Items.OrderBy(x => x.ItemId).ToList();
+            var list_item = _context.Items.OrderBy(x => x.ItemId).ToList();
             return Json(list_item, JsonRequestBehavior.AllowGet);
         }
 

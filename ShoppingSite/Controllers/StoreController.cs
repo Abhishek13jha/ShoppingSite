@@ -29,8 +29,9 @@ namespace ShoppingSite.Controllers
         
         public ActionResult Browse(string category)
         {
-            var categorymodel = _context.Categories.Include("Items").Single(c => c.CategoryName == category);
-            return View(categorymodel);
+            var categoryModel = _context.Categories.Include("Items").Single(c => c.CategoryName == category);
+            return View(categoryModel);
+            
         }
         public ActionResult Details(int id)
         {

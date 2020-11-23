@@ -1,24 +1,31 @@
 ﻿@model ShoppingSite.Models.Item
 
+@{ ViewBag.Title = "Index"; }
 
 <title>jQuery UI Autocomplete - Default functionality</title>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <div class="ui-widget">
     <p>Available items</p>
     <label for="tags">Tags:</label>
-    <input id="tags">
+
+
+    @using (Html.BeginForm())
+    {
+<input id="tags" name="tags" type="text">
+                <input type="submit" value="search" />}
 </div>
 
 
 @if (Model != null)
 {
-    <h4>@Model.ItemName</h4>
-    
-}
+<h6>@Html.ActionLink(Model.ItemName, "Details", "Store", new { id = Model.ItemId }, "")</h6> }
+            else
+            {
+<h6>Not found</h6>}
+
 
 <script>
 
@@ -26,12 +33,12 @@
         var availableTags = [];
         $.ajax(
             {
-                type='GET',
-                url='/Home/getName',
+                type: 'GET',
+                url: '/Home/getName',
                 success: function (response) {
 
                     $.each(response, function (key, item) {
-                        availableTags.push(item.);
+                        availableTags.push(item.ItemName);
                     });
                 }
             });
@@ -41,19 +48,11 @@
             source: availableTags
         });
     });
+
 </script>
 
 
 
-
-
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 <br />
 <br />
 <br />

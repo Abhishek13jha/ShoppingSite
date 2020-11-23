@@ -5,9 +5,13 @@
 }
 
 <h2>Category present:</h2>
-<ul>
-    @foreach (var category in Model)
-    {
-        <li> @Html.ActionLink(category.CategoryName, "Browse", new { category = category.CategoryName })</li>
-    }
-</ul>
+
+@foreach (var category in Model)
+{
+    <div class="container">
+        <ul class="list-group">
+            <li> @Html.ActionLink(category.CategoryName, "Browse", new { category = category.CategoryName })</li>
+        </ul>
+    </div>
+}
+

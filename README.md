@@ -15,7 +15,7 @@ Authorization for user
 in Fourth commit-
 Cart View
 
-Upcoming changes...
+in last commit-
 1.Searching option
 2.Look into the style part of application
 

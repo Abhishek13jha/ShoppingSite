@@ -53,7 +53,7 @@ For first time user to interact with website UI following are the instructions:
 4.In order to access the StoreManager section use above mentioned details to login.
 
 # Commits
-In first Coomit-
+In first Commit-
 1.enabled Entity Framework
 2.Created Table of Item Model 
 3.Created StoreManager Controller for add,delete,update.

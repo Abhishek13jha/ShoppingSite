@@ -1,3 +1,4 @@
+# ShoppingSite
 Entity Framework Version : v6.1.3
 Bootstrap Version : v3.4.1
 Note : if enable-migrations does not work.
@@ -44,14 +45,14 @@ Mail-Abhishek@gmail.com
 Password-Abhishek@123
 
 
-Functionaliy-
+# functionality
 For first time user to interact with website UI following are the instructions:
 1.Use Regsiter button at navbar to register.
 2.Now you can visit the store section and select the item and add to cart and then at Checkout fill your detail and order for items.
 3.In case, you had not register at start then you need to Register at time of Checkout.
 4.In order to access the StoreManager section use above mentioned details to login.
 
-# ShoppingSite
+# Commits
 In first Coomit-
 1.enabled Entity Framework
 2.Created Table of Item Model 

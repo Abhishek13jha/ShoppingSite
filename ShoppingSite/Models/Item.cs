@@ -5,13 +5,15 @@ using System.Web;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShoppingSite.Models
 {
-    [Bind(Exclude = "ItemId")]
+  //  [Bind(Exclude = "ItemId")]
     public class Item
     {
         [ScaffoldColumn(false)]
+        
         public int ItemId { get; set; }
         [Required(ErrorMessage = "*Required Field")]
         public string ItemName { get; set; }

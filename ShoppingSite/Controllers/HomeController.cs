@@ -26,7 +26,7 @@ namespace ShoppingSite.Controllers
         [HttpPost]
         public ActionResult Index(string tags)
         {
-            var item = _context.Items.Where(x => x.ItemName.Equals(tags)).SingleOrDefault();
+            var item = _context.Items.Where(x => x.ItemName.StartsWith(tags)).FirstOrDefault();
             return View(item);
         }
 

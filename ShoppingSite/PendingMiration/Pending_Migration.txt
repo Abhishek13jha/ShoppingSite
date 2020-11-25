@@ -1,25 +1,25 @@
 //for categories
 
-SET IDENTITY_INSERT [dbo].[Categories] ON
-INSERT INTO [dbo].[Categories] ([categoryId], [CategoryName], [Description]) VALUES (5, N'Electronics', NULL)
-INSERT INTO [dbo].[Categories] ([categoryId], [CategoryName], [Description]) VALUES (6, N'Appliances', NULL)
-INSERT INTO [dbo].[Categories] ([categoryId], [CategoryName], [Description]) VALUES (7, N'Fashion', NULL)
-INSERT INTO [dbo].[Categories] ([categoryId], [CategoryName], [Description]) VALUES (8, N'Beauty', NULL)
-INSERT INTO [dbo].[Categories] ([categoryId], [CategoryName], [Description]) VALUES (9, N'Sports', NULL)
-INSERT INTO [dbo].[Categories] ([categoryId], [CategoryName], [Description]) VALUES (10, N'Food', NULL)
-SET IDENTITY_INSERT [dbo].[Categories] OFF
+SQL("SET IDENTITY_INSERT [dbo].[Categories] ON");
+SQL("INSERT INTO [dbo].[Categories] ([categoryId], [CategoryName], [Description]) VALUES (5, N'Electronics', NULL)");
+SQL("INSERT INTO [dbo].[Categories] ([categoryId], [CategoryName], [Description]) VALUES (6, N'Appliances', NULL)");
+SQL("INSERT INTO [dbo].[Categories] ([categoryId], [CategoryName], [Description]) VALUES (7, N'Fashion', NULL)");
+SQL("INSERT INTO [dbo].[Categories] ([categoryId], [CategoryName], [Description]) VALUES (8, N'Beauty', NULL)");
+SQL("INSERT INTO [dbo].[Categories] ([categoryId], [CategoryName], [Description]) VALUES (9, N'Sports', NULL)");
+SQL("INSERT INTO [dbo].[Categories] ([categoryId], [CategoryName], [Description]) VALUES (10, N'Food', NULL)");
+SQL("SET IDENTITY_INSERT [dbo].[Categories] OFF");
 
 //for producers
 
-SET IDENTITY_INSERT [dbo].[Producers] ON
-INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (5, N'Phillips')
-INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (6, N'Boat')
-INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (7, N'Zara')
-INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (8, N'Ikea')
-INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (9, N'Iphone')
-INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (10, N'Badminton')
-INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (11, N'LG')
-INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (12, N'Haldirams')
-SET IDENTITY_INSERT [dbo].[Producers] OFF
+SQL("SET IDENTITY_INSERT [dbo].[Producers] ON");
+SQL("INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (5, N'Phillips')");
+SQL("INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (6, N'Boat')");
+SQL("INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (7, N'Zara')");
+SQL("INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (8, N'Ikea')");
+SQL("INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (9, N'Iphone')");
+SQL("INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (10, N'Badminton')");
+SQL("INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (11, N'LG')");
+SQL("INSERT INTO [dbo].[Producers] ([ProducerId], [Name]) VALUES (12, N'Haldirams')");
+SQL("SET IDENTITY_INSERT [dbo].[Producers] OFF");
 
 

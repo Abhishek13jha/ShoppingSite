@@ -1,3 +1,4 @@
+# ShoppingSite
 Entity Framework Version : v6.1.3
 Bootstrap Version : v3.4.1
 Note : if enable-migrations does not work.
@@ -38,13 +39,21 @@ If Still Errors in packages:
 Tools > NuGet Package Manager > Package manager setting >. Under General, select Allow NuGet to download missing packages.
 
 In Solution Explorer, right click the solution and select Restore NuGet Packages.
+
 In order to access the StoreManager section use -
 Mail-Abhishek@gmail.com
 Password-Abhishek@123
 
 
+# functionality
+For first time user to interact with website UI following are the instructions:
+1.Use Regsiter button at navbar to register.
+2.Now you can visit the store section and select the item and add to cart and then at Checkout fill your detail and order for items.
+3.In case, you had not register at start then you need to Register at time of Checkout.
+4.In order to access the StoreManager section use above mentioned details to login.
 
-# ShoppingSite
+# Commits
+In first Commit-
 1.enabled Entity Framework
 2.Created Table of Item Model 
 3.Created StoreManager Controller for add,delete,update.
@@ -55,13 +64,13 @@ Authorization for admin
 Order class
 Cart for items
 
-in third commit-
+in third commit added-
 Authorization for user
 
-in Fourth commit-
+in Fourth commit added-
 Cart View
 
-in last commit-
+in last commit added-
 1.Searching option
 2.Look into the style part of application
 

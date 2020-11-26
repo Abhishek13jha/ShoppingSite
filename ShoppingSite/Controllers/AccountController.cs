@@ -63,8 +63,9 @@ namespace ShoppingSite.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            LoginViewModel loginViewModel = new LoginViewModel();
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            return View(loginViewModel);
         }
 
         //
@@ -146,7 +147,8 @@ namespace ShoppingSite.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            RegisterViewModel registerViewModel = new RegisterViewModel();
+            return View(registerViewModel);
         }
 
         //

@@ -27,32 +27,28 @@ namespace ShoppingSite.Models
         {
             return GetCart(controller.HttpContext);
         }
-        public void AddToCart(Item item)
+        public void AddToCart(Item item,int? quantity)
         {
-
-            var cartItem = storeDB.Carts.SingleOrDefault(
+            var cartItem = storeDB.Carts.Include("Item").SingleOrDefault(
                 c => c.CartId == ShoppingCartId
                 && c.ItemId == item.ItemId);
-
             if (cartItem == null)
             {
-
                 cartItem = new Cart
                 {
                     ItemId = item.ItemId,
                     CartId = ShoppingCartId,
-                    Count = 1,
+                    Count = (int)quantity,
                     DateCreated = DateTime.Now
                 };
-                storeDB.Carts.Add(cartItem);
-            }
-            else
-            {
-
-                cartItem.Count++;
+                var variable = storeDB.Items.Find(item.ItemId);
+                variable.Quantity -= quantity ?? 0;
+                storeDB.Carts.Add(cartItem);  
             }
 
             storeDB.SaveChanges();
+            
+           
         }
         public int RemoveFromCart(int id)
         {
@@ -65,15 +61,8 @@ namespace ShoppingSite.Models
 
             if (cartItem != null)
             {
-                if (cartItem.Count > 1)
-                {
-                    cartItem.Count--;
-                    itemCount = cartItem.Count;
-                }
-                else
-                {
-                    storeDB.Carts.Remove(cartItem);
-                }
+               
+                storeDB.Carts.Remove(cartItem);
 
                 storeDB.SaveChanges();
             }
@@ -89,7 +78,7 @@ namespace ShoppingSite.Models
             {
                 storeDB.Carts.Remove(cartItem);
             }
-
+            
             storeDB.SaveChanges();
         }
         public List<Cart> GetCartItems()
@@ -100,11 +89,9 @@ namespace ShoppingSite.Models
         public int GetCount()
         {
 
-            int? count = (from cartItems in storeDB.Carts
-                          where cartItems.CartId == ShoppingCartId
-                          select (int?)cartItems.Count).Sum();
+            int count = (from cartItems in storeDB.Carts.Include("Item") where cartItems.CartId == ShoppingCartId select (int)cartItems.Count).Sum();
 
-            return count ?? 0;
+            return count ;
         }
 
         public decimal GetTotal()
@@ -131,18 +118,16 @@ namespace ShoppingSite.Models
                     ItemId = item.ItemId,
                     OrderId = order.OrderId,
                     UnitPrice =(decimal)item.Item.Price,
-                    Quantity = item.Count
+                    Quantity = item.Item.Quantity
                 };
                 
-                orderTotal += (decimal)(item.Count * item.Item.Price);
+                orderTotal += (decimal)(item.Item.Quantity * item.Item.Price);
 
                 storeDB.OrderDetails.Add(orderDetail);
 
             }
-
             order.Total = orderTotal;
-
-
+            
             storeDB.SaveChanges();
 
             EmptyCart();

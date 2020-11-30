@@ -43,6 +43,7 @@ namespace ShoppingSite.Controllers
 
 
                     storeDB.Orders.Add(order);
+
                     storeDB.SaveChanges();
 
                     var cart = ShoppingCart.GetCart(this.HttpContext);

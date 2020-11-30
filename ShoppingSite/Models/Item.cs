@@ -9,7 +9,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShoppingSite.Models
 {
-  //  [Bind(Exclude = "ItemId")]
     public class Item
     {
         [ScaffoldColumn(false)]
@@ -20,6 +19,9 @@ namespace ShoppingSite.Models
         [Required(ErrorMessage = "*Required Field")]
         [Range(50, 10000, ErrorMessage = "Must be between 50 to 10000")]
         public float Price { get; set; }
+        [Required(ErrorMessage = "*Required Field")]
+        [Range(0, 100, ErrorMessage = "Must be between 1 to 100")]
+        public int Quantity { get; set; }
         [DisplayName("Item Photo Url")]
         public string ItemUrl { get; set; }
         public Category Category { get; set; }

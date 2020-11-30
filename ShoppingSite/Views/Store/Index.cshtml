@@ -5,13 +5,17 @@
 }
 
 <h2>Category present:</h2>
-
-@foreach (var category in Model)
-{
-    <div class="container">
-        <ul class="list-group">
-            <li> @Html.ActionLink(category.CategoryName, "Browse", new { category = category.CategoryName })</li>
-        </ul>
-    </div>
+<div class="row">
+    @foreach (var category in Model)
+    {
+        <div class="col-xs-4">
+            <div class="thumbnail">
+                <img src="\Content\Image\download.png">
+                <div class="caption">
+                    <p><b>@Html.ActionLink(category.CategoryName, "Browse", new { category = category.CategoryName })</b></p>
+                </div>
+            </div>
+        </div>
 }
+</div>
 

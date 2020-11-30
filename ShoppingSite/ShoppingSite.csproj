@@ -189,6 +189,10 @@
     <Compile Include="Migrations\202011211820475_InitialThree.Designer.cs">
       <DependentUpon>202011211820475_InitialThree.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011280534527_AddQuantity.cs" />
+    <Compile Include="Migrations\202011280534527_AddQuantity.Designer.cs">
+      <DependentUpon>202011280534527_AddQuantity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -274,6 +278,7 @@
     <Content Include="Views\Checkout\AddressAndPayment.cshtml" />
     <Content Include="Views\Checkout\Complete.cshtml" />
     <Content Include="Views\ShoppingCart\CartSummary.cshtml" />
+    <Content Include="Views\ShoppingCart\AddToCartSecond.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -302,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011211820475_InitialThree.resx">
       <DependentUpon>202011211820475_InitialThree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011280534527_AddQuantity.resx">
+      <DependentUpon>202011280534527_AddQuantity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

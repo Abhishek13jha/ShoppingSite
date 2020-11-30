@@ -24,29 +24,36 @@ namespace ShoppingSite.Controllers
         {
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
-           
-          
             var viewModel = new ShoppingCartViewModel
             {
                 CartItems = cart.GetCartItems(),
                 CartTotal =cart.GetTotal()
-                
+
             };
 
             return View(viewModel);
         }
         
-        public ActionResult AddToCart(int id)
+        public ActionResult AddToCart(int Id,int? Quantity)
         {
+            if (Quantity ==null)
+            {
+                return View("AddToCartSecond");
+            }
+            else
+            {
 
-            var addedItem = _context.Items
-                .Single(item => item.ItemId == id);
+                var addedItem = _context.Items
+                    .SingleOrDefault(item => item.ItemId == Id);
 
-            var cart = ShoppingCart.GetCart(this.HttpContext);
+                var cart = ShoppingCart.GetCart(this.HttpContext);
 
-            cart.AddToCart(addedItem);
+                cart.AddToCart(addedItem, Quantity);
 
-            return RedirectToAction("Index");
+
+                return RedirectToAction("Index");
+            }
+            
         }
 
         [HttpPost]
@@ -54,14 +61,10 @@ namespace ShoppingSite.Controllers
         {
 
             var cart = ShoppingCart.GetCart(this.HttpContext);
-
-
             string itemName = _context.Carts
                 .Single(item => item.RecordId == id).Item.ItemName;
 
-
             int itemCount = cart.RemoveFromCart(id);
-
 
             var results = new ShoppingCartRemoveViewModel
             {

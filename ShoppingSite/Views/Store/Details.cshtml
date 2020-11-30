@@ -6,27 +6,60 @@
 
 <h2>@Model.ItemName</h2>
 
+<p>
+    <img alt="@Model.ItemName"
+         src="@Model.ItemUrl" />
+</p>
+
+<div id="item-details">
     <p>
-        <img alt="@Model.ItemName"
-             src="@Model.ItemUrl" />
+        <em>Producer:</em>
+        @Model.Producer.Name
     </p>
-    <div id="item-details">
-        
-        <p>
-            <em>Producer:</em>
-            @Model.Producer.Name
-        </p>
-        <p>
-            <em>Price:</em>
-            @String.Format("{0:F}",
-    Model.Price)
-        </p>
-        <p class="button1">
-            @Html.ActionLink("Add to cart", "AddToCart",
-            "ShoppingCart", new { id = Model.ItemId }, "")
-        </p>
-        <div class="fb-comments" data-width="230" data-numposts="5"></div>
-    </div>
+    <p>
+        <em>Price:</em>
+        @String.Format("{0:F}",
+Model.Price)
+    </p>
+
+    @using (Html.BeginForm("AddToCart", "ShoppingCart"))
+    {
+                        <input type="hidden" name="Id" value="@Model.ItemId" />
+                        <label class="my-1 mr-2" for="Quantity">Enter Quantity</label>
+                        <select class="custom-select my-1 mr-sm-2" name="Quantity" id="Quantity">
+                            @for (int i = 1; i <= Model.Quantity; i++)
+                            {
+                                <option>@i</option>
+                            }
+                        </select>
+                        <br/>
+              <button class="btn btn-success float-right " type="submit">Add To cart</button>
+    }
+    @if (Model.Quantity > 0)
+                  {<br />
+                        <p class="card-text float-right"><small class="text-muted"> Available Quantity : @Model.Quantity </small></p>
+                  }  else
+                    {
+                        <br />
+                        <p class="card-text float-right "><small class=" text-danger"> Item Out of Stock </small></p>
+                    }
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -20,8 +20,6 @@ namespace ShoppingSite.Controllers
             db = new ApplicationDbContext();
         }
 
-
-
         public ActionResult Index()
         {
             var items = db.Items.Include(i => i.Category).Include(i => i.Producer);
@@ -34,7 +32,8 @@ namespace ShoppingSite.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Item item = db.Items.Find(id);
+            var item = db.Items.Include(i => i.Category).Include(i => i.Producer).Where(s => s.ItemId == id).FirstOrDefault<Item>();
+            // Item item = db.Items.Find(id);
             if (item == null)
             {
                 return HttpNotFound();
@@ -90,7 +89,6 @@ namespace ShoppingSite.Controllers
         {
             if (ModelState.IsValid)
             {
-            
                 db.Entry(item).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

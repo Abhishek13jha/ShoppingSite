@@ -38,7 +38,6 @@ namespace ShoppingSite.Controllers
             var item = _context.Items.Include("Producer").Where(s => s.ItemId == id).FirstOrDefault<Item>();
             return View(item);
         }
-
         
     }
 }

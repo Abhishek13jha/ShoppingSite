@@ -6,14 +6,17 @@
 
 <h2>@Model.CategoryName</h2>
 
-
+<div class="row">
     @foreach (var item in Model.Items)
     {
-    <div class="container">
-        <ul class="list-group">
-            <li class="list-group-item"> @Html.ActionLink(item.ItemName, "Details", new { id = item.ItemId })</li>
-        </ul>
-    </div>
+        <div class="col-xs-4">
+            <div class="thumbnail">
+                <img src="\Content\Image\download.png">
+                <div class="caption">
+                    <p><b>@Html.ActionLink(item.ItemName, "Details", new { id = item.ItemId })</b></p>
+                </div>
+            </div>
+        </div>
     }
-
+</div>
 

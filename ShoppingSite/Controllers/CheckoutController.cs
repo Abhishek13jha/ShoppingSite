@@ -66,10 +66,10 @@ namespace ShoppingSite.Controllers
             bool isValid = storeDB.Orders.Any(
                 o => o.OrderId == id &&
                 o.UserName == User.Identity.Name);
-
+            var val = storeDB.Orders.Find(id);
             if (isValid)
             {
-                return View(id);
+                return View(val);
             }
             else
             {

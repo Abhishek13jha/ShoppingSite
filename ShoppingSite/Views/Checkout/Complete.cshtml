@@ -1,12 +1,16 @@
-﻿
+﻿@model ShoppingSite.Models.Order
 @{
     ViewBag.Title = "Complete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<img src="\Content\Image\42acd89036fa069d7fdff41086abc609.jpg" class="center-block">
+<br />
+<p class="text-center"><b>Checkout Completed!!!</b></p>
+<p class="text-center"><b>Hey @Model.FirstName</</b></p>
+<p class="text-center"><b>Thanks for your order! Your order number is: @Model.OrderId</b></p>
+<p class="text-center"><b>This will reach to you by @Model.OrderDate.AddDays(5)</p>
 
-<h2>Checkout Completed!!!</h2>
-<p>Thanks for your order! Your order number is: @Model</p>
-<p>
+<p class="text-center">
     Want to buy some more stuff!!!
     @Html.ActionLink("store",
 "Index", "Home")

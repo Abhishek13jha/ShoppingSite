@@ -23,10 +23,10 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Store", "Index", "Store")</li>
-                    <li>@{Html.RenderAction("CartSummary", "ShoppingCart"); }</li>
-                   @if (User.Identity.Name == "Abhishek@gmail.com")
+                   @*<li>@{Html.RenderAction("CartSummary", "ShoppingCart"); }</li>*@
+                    @if (User.Identity.Name == "Abhishek@gmail.com")
                     {
-                    <li>@Html.ActionLink("StoreManager", "Index", "StoreManager")</li>
+                        <li>@Html.ActionLink("StoreManager", "Index", "StoreManager")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

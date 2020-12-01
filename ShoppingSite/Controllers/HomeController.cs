@@ -35,12 +35,11 @@ namespace ShoppingSite.Controllers
             var list_item = _context.Items.OrderBy(x => x.ItemId).ToList();
             return Json(list_item, JsonRequestBehavior.AllowGet);
         }
-
+       // ["home"/"About"]
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
 
-            return View();
+            return View("AdminView");
         }
 
         public ActionResult Contact()

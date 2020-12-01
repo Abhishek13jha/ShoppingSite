@@ -86,10 +86,10 @@
         <div class="col-xs-6 col-md-8">
             @if (Model != null)
             {
-    @Html.ActionLink(Model.ItemName, "Details", "Store", new { id = Model.ItemId }, "") }
-                else
+           @Html.ActionLink(Model.ItemName, "Details", "Store", new { id = Model.ItemId }, "") }
+            else if (Model==null)
                 {
-                    <h4>Not found</h4>
+                    <h5>Search Products Here</h5>
                 }
         </div>
         </div>
@@ -119,11 +119,6 @@
 
 </script>
 
-
-
-<br />
-<br />
-<br />
 
 
 

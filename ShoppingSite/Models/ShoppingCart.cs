@@ -89,9 +89,11 @@ namespace ShoppingSite.Models
         public int GetCount()
         {
 
-            int count = (from cartItems in storeDB.Carts.Include("Item") where cartItems.CartId == ShoppingCartId select (int)cartItems.Count).Sum();
+            int? count = (from cartItems in storeDB.Carts
+                         where cartItems.CartId == ShoppingCartId 
+                         select (int?)cartItems.Count).Sum();
 
-            return count ;
+            return count??0 ;
         }
 
         public decimal GetTotal()

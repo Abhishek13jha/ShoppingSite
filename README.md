@@ -47,17 +47,17 @@ Password-Abhishek@123
 
 # functionality
 For first time user to interact with website UI following are the instructions:
-1.Use Regsiter button at navbar to register.
-2.Now you can visit the store section and select the item and add to cart and then at Checkout fill your detail and order for items.
-3.In case, you had not register at start then you need to Register at time of Checkout.
-4.In order to access the StoreManager section use above mentioned details to login.
+1. Use Regsiter button at navbar to register.
+2. Now you can visit the store section and select the item and add to cart and then at Checkout fill your detail and order for items.
+3. In case, you had not register at start then you need to Register at time of Checkout.
+4. In order to access the StoreManager section use above mentioned details to login.
 
 # Commits
 In first Commit-
-1.enabled Entity Framework
-2.Created Table of Item Model 
-3.Created StoreManager Controller for add,delete,update.
-4.Added Annotations
+1. enabled Entity Framework
+2. Created Table of Item Model 
+3. Created StoreManager Controller for add,delete,update.
+4. Added Annotations
 
 In second commit added-
 Authorization for admin
